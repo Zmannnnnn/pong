@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bv6u77e46i8w3"]
+
+[ext_resource type="Script" path="res://pong.gd" id="1_p3fty"]
+[ext_resource type="Texture2D" uid="uid://co8a5avix6avr" path="res://nupong.jpg" id="1_wkveo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5rs76"]
+size = Vector2(20, 200)
+
+[node name="StaticBody2D" type="StaticBody2D"]
+script = ExtResource("1_p3fty")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_wkveo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_5rs76")
