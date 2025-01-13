@@ -1,0 +1,54 @@
+[gd_scene load_steps=4 format=3 uid="uid://dsmnsv0itcq8w"]
+
+[ext_resource type="Script" path="res://assets/scripts/player_score.gd" id="1_nh6ej"]
+[ext_resource type="Script" path="res://assets/scripts/opponent_score.gd" id="2_svbk4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7nhfm"]
+size = Vector2(20, 648)
+
+[node name="PlayingTable" type="Node"]
+
+[node name="PlayerScore" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -49.0
+offset_right = -11.0
+offset_bottom = 69.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 50
+text = "0"
+script = ExtResource("1_nh6ej")
+
+[node name="OpponentScore" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 11.0
+offset_right = 49.0
+offset_bottom = 69.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 50
+text = "0"
+script = ExtResource("2_svbk4")
+
+[node name="PlayersGoal" type="Area2D" parent="."]
+position = Vector2(0, 324)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayersGoal"]
+shape = SubResource("RectangleShape2D_7nhfm")
+
+[node name="OpponentsGoal" type="Area2D" parent="."]
+position = Vector2(1152, 324)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OpponentsGoal"]
+shape = SubResource("RectangleShape2D_7nhfm")
+
+[connection signal="body_entered" from="PlayersGoal" to="OpponentScore" method="_on_players_goal_body_entered"]
+[connection signal="body_entered" from="OpponentsGoal" to="PlayerScore" method="_on_opponents_goal_body_entered"]
