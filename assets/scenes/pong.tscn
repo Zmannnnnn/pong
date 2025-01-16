@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://j6w86xp7eumd"]
+
+[ext_resource type="Texture2D" uid="uid://r86eqwi2qir1" path="res://nupong.jpg" id="1_vrbed"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5rs76"]
+size = Vector2(20, 200)
+
+[node name="StaticBody2D" type="StaticBody2D"]
+position = Vector2(111, 292)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_vrbed")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_5rs76")
